@@ -4,3 +4,9 @@ main: me.karlito1501.smpcore.SmpCore
 api-version: 1.18
 authors: [ karlo292, 3au ]
 website: karlito1501.xyz
+
+
+commands:
+  gmc:
+    description: Changes gamemode of player to creative
+    usage: /<command>
