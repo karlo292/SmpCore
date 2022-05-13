@@ -10,3 +10,9 @@ commands:
   gmc:
     description: Changes gamemode of player to creative
     usage: /<command>
+    aliases: creative
+
+  gms:
+    description: Changes gamemode of player to survival
+    usage: /<command>
+    aliases: survival
