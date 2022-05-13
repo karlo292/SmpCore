@@ -16,3 +16,13 @@ commands:
     description: Changes gamemode of player to survival
     usage: /<command>
     aliases: survival
+
+  gma:
+    description: Changes gamemode of player to adventure
+    usage: /<command>
+    aliases: adventure
+
+  gmsp:
+    description: Changes gamemode of player to spectator
+    usage: /<command>
+    aliases: spectator

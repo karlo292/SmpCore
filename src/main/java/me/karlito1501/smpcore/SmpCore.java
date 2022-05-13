@@ -1,7 +1,9 @@
 package me.karlito1501.smpcore;
 
 
+import me.karlito1501.smpcore.commands.GamemodeAdventureCommand;
 import me.karlito1501.smpcore.commands.GamemodeCreativeCommand;
+import me.karlito1501.smpcore.commands.GamemodeSpectatorCommand;
 import me.karlito1501.smpcore.commands.GamemodeSurvivalCommand;
 import me.karlito1501.smpcore.listeners.PlayerJoinListener;
 import me.karlito1501.smpcore.listeners.PlayerLeaveListener;
@@ -20,6 +22,8 @@ public final class SmpCore extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerLeaveListener(), this);
         this.getCommand("gmc").setExecutor(new GamemodeCreativeCommand());
         this.getCommand("gms").setExecutor(new GamemodeSurvivalCommand());
+        this.getCommand("gma").setExecutor(new GamemodeAdventureCommand());
+        this.getCommand("gmsp").setExecutor(new GamemodeSpectatorCommand());
 
 
         System.out.println("##################");
