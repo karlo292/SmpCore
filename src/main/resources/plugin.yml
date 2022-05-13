@@ -26,3 +26,11 @@ commands:
     description: Changes gamemode of player to spectator
     usage: /<command>
     aliases: spectator
+
+  day:
+    description: Changes time to day
+    usage: /<command>
+
+  night:
+    description: Changes time to night
+    usage: /<command>
