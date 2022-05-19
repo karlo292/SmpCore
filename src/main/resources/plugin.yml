@@ -34,3 +34,7 @@ commands:
   night:
     description: Changes time to night
     usage: /<command>
+
+  tp:
+    description: Teleports you to target player
+    usage: /<command>
