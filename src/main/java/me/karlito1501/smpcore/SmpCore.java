@@ -3,10 +3,7 @@ package me.karlito1501.smpcore;
 
 import me.karlito1501.smpcore.commands.*;
 import me.karlito1501.smpcore.db.Database;
-import me.karlito1501.smpcore.listeners.PlayerBlockBreak;
-import me.karlito1501.smpcore.listeners.PlayerJoinListener;
-import me.karlito1501.smpcore.listeners.PlayerKillListener;
-import me.karlito1501.smpcore.listeners.PlayerLeaveListener;
+import me.karlito1501.smpcore.listeners.*;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,7 +31,7 @@ public final class SmpCore extends JavaPlugin {
 
         }
 
-
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerKillListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerBlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
