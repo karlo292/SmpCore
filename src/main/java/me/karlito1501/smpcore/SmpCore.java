@@ -5,6 +5,7 @@ import me.karlito1501.smpcore.commands.*;
 import me.karlito1501.smpcore.db.Database;
 import me.karlito1501.smpcore.listeners.PlayerBlockBreak;
 import me.karlito1501.smpcore.listeners.PlayerJoinListener;
+import me.karlito1501.smpcore.listeners.PlayerKillListener;
 import me.karlito1501.smpcore.listeners.PlayerLeaveListener;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -34,7 +35,7 @@ public final class SmpCore extends JavaPlugin {
         }
 
 
-
+        getServer().getPluginManager().registerEvents(new PlayerKillListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerBlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLeaveListener(), this);
@@ -45,6 +46,7 @@ public final class SmpCore extends JavaPlugin {
         this.getCommand("day").setExecutor(new TimeDayCommand());
         this.getCommand("night").setExecutor(new TimeNightCommand());
         this.getCommand("tp").setExecutor(new TpCommand());
+
 
         System.out.println("##################");
         System.out.println("#Starting SmpCore#");

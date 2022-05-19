@@ -44,8 +44,6 @@ public class PlayerBlockBreak implements Listener {
         }
         Long blocksBroken = stats.getBlocksBroken();
 
-        player.sendMessage(blocksBroken + "");
-
     }
 
 }

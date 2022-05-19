@@ -21,7 +21,7 @@ public class Database {
 
 
         this.connection = DriverManager.getConnection(url, user, password);
-        System.out.println("Connected to the Stat Tracker Database!");
+        System.out.println("Connected to the Database!");
 
         return this.connection;
 
@@ -32,7 +32,10 @@ public class Database {
 
         Statement statement = getConnection().createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS player_stats(uuid varchar(36),deaths int, kills int, blocks_broken long, balance double)";
-        statement.execute("USE stat_tracker");
+
+
+        statement.execute("CREATE DATABASE IF NOT EXISTS playerData;");
+        statement.execute("USE playerData");
         statement.execute(sql);
 
         statement.close();

@@ -9,8 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import static me.karlito1501.smpcore.SmpCore.MESSAGE_PREFIX;
-import static me.karlito1501.smpcore.SmpCore.MESSAGE_PREFIX_RED;
+import static me.karlito1501.smpcore.SmpCore.*;
 
 public class TpCommand implements CommandExecutor {
 
@@ -18,6 +17,10 @@ public class TpCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
         if(sender instanceof Player player){
+            if(!player.hasPermission("smpcore.tp")){
+                player.sendMessage(NO_PERMISSION);
+                return true;
+            }
             if(args.length == 0){
                 player.sendMessage(MESSAGE_PREFIX + " Usage: /tp <player>");
                 return true;
