@@ -38,3 +38,7 @@ commands:
   tp:
     description: Teleports you to target player
     usage: /<command>
+
+  xraycheck:
+    description: Shows stone broken compared to diamonds broken
+    usage: /<command>

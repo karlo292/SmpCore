@@ -1,7 +1,6 @@
 package me.karlito1501.smpcore.db;
 
 import me.karlito1501.smpcore.podels.PlayerStats;
-import org.bukkit.entity.Player;
 
 import java.sql.*;
 

@@ -2,14 +2,11 @@ package me.karlito1501.smpcore.listeners;
 
 import me.karlito1501.smpcore.SmpCore;
 import me.karlito1501.smpcore.podels.PlayerStats;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.sql.SQLException;
 

@@ -1,7 +1,10 @@
 package me.karlito1501.smpcore.listeners;
 
+import it.unimi.dsi.fastutil.Hash;
 import me.karlito1501.smpcore.SmpCore;
 import me.karlito1501.smpcore.podels.PlayerStats;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -10,11 +13,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.UUID;
+
+import static me.karlito1501.smpcore.SmpCore.MESSAGE_PREFIX_RED;
 
 
 public class PlayerBlockBreak implements Listener {
 
     private final SmpCore plugin;
+
 
     public PlayerBlockBreak(SmpCore plugin) {
         this.plugin = plugin;
@@ -38,6 +46,13 @@ public class PlayerBlockBreak implements Listener {
             } else {
                 if(block.getType() == Material.DIAMOND_ORE || block.getType() == Material.DEEPSLATE_DIAMOND_ORE){
                     stats.setDiamondsBroken(stats.getDiamondsBroken() + 1);
+                    String playername = player.getDisplayName();
+                    for(Player player1 : Bukkit.getServer().getOnlinePlayers()){
+                        if(player1.hasPermission("smpcore.antixray")){
+
+                            player1.sendMessage(MESSAGE_PREFIX_RED + " " + ChatColor.YELLOW + playername + ChatColor.RED + " has mined diamond ore!");
+                        }
+                    }
                 }
                 if(block.getType() == Material.STONE || block.getType() == Material.DEEPSLATE){
                     stats.setStoneBroken(stats.getStoneBroken() + 1);

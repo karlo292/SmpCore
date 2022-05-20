@@ -36,6 +36,7 @@ public final class SmpCore extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerBlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLeaveListener(), this);
+        this.getCommand("xraycheck").setExecutor(new XrayCheck(this));
         this.getCommand("gmc").setExecutor(new GamemodeCreativeCommand());
         this.getCommand("gms").setExecutor(new GamemodeSurvivalCommand());
         this.getCommand("gma").setExecutor(new GamemodeAdventureCommand());
