@@ -8,7 +8,7 @@ public class PlayerStats {
     private int deaths;
     private int kills;
     private long blocksBroken;
-    private double balance;
+
 
 
     public String getUuid() {
@@ -46,20 +46,14 @@ public class PlayerStats {
 
 
 
-    public double getBalance() {
-        return balance;
-    }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
 
-    public PlayerStats(String uuid, int deaths, int kills, long blocksBroken, double balance) {
+    public PlayerStats(String uuid, int deaths, int kills, long blocksBroken) {
         this.uuid = uuid;
         this.deaths = deaths;
         this.kills = kills;
         this.blocksBroken = blocksBroken;
-        this.balance = balance;
+
 
 
     }

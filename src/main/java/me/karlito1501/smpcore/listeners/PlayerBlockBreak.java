@@ -29,7 +29,7 @@ public class PlayerBlockBreak implements Listener {
 
             if (stats == null) {
 
-                stats = new PlayerStats(player.getUniqueId().toString(), 0, 0, 0, 0);
+                stats = new PlayerStats(player.getUniqueId().toString(), 0, 0, 0);
 
                 this.plugin.getDatabase().createPlayerStats(stats);
 

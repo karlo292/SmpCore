@@ -31,7 +31,7 @@ public class Database {
     public void initializeDatabase() throws SQLException{
 
         Statement statement = getConnection().createStatement();
-        String sql = "CREATE TABLE IF NOT EXISTS player_stats(uuid varchar(36),deaths int, kills int, blocks_broken long, balance double)";
+        String sql = "CREATE TABLE IF NOT EXISTS player_stats(uuid varchar(36),deaths int, kills int, blocks_broken long)";
 
 
         statement.execute("CREATE DATABASE IF NOT EXISTS playerData;");
@@ -59,10 +59,10 @@ public class Database {
             int deaths = results.getInt("deaths");
             int kills = results.getInt("kills");
             long blocksBroken = results.getLong("blocks_broken");
-            double balance = results.getDouble("balance");
 
 
-            PlayerStats playerStats = new PlayerStats(uuid,deaths,kills,blocksBroken,balance);
+
+            PlayerStats playerStats = new PlayerStats(uuid,deaths,kills,blocksBroken);
 
             statement.close();
 
@@ -74,12 +74,11 @@ public class Database {
 
     public void createPlayerStats(PlayerStats stats) throws SQLException{
 
-        PreparedStatement statement = getConnection().prepareStatement("INSERT INTO player_stats(uuid,deaths,kills,blocks_broken,balance) VALUES (?,?,?,?,?)");
+        PreparedStatement statement = getConnection().prepareStatement("INSERT INTO player_stats(uuid,deaths,kills,blocks_broken) VALUES (?,?,?,?)");
         statement.setString(1, stats.getUuid());
         statement.setInt(2, stats.getDeaths());
         statement.setInt(3,stats.getKills());
         statement.setLong(4,stats.getBlocksBroken());
-        statement.setDouble(5,stats.getBalance());
 
         statement.executeUpdate();
 
@@ -90,14 +89,13 @@ public class Database {
 
     public void updatePlayerStats(PlayerStats stats) throws SQLException{
 
-        PreparedStatement statement = getConnection().prepareStatement("UPDATE player_stats SET deaths = ?, kills = ?, blocks_broken = ?, balance = ? WHERE uuid = ?");
+        PreparedStatement statement = getConnection().prepareStatement("UPDATE player_stats SET deaths = ?, kills = ?, blocks_broken = ? WHERE uuid = ?");
 
 
         statement.setInt(1, stats.getDeaths());
         statement.setInt(2,stats.getKills());
         statement.setLong(3,stats.getBlocksBroken());
-        statement.setDouble(4,stats.getBalance());
-        statement.setString(5, stats.getUuid());
+        statement.setString(4, stats.getUuid());
 
 
         statement.executeUpdate();
