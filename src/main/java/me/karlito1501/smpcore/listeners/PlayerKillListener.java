@@ -2,6 +2,7 @@ package me.karlito1501.smpcore.listeners;
 
 import me.karlito1501.smpcore.SmpCore;
 import me.karlito1501.smpcore.podels.PlayerStats;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,7 +33,7 @@ public class PlayerKillListener implements Listener{
 
                     if (stats == null) {
 
-                        stats = new PlayerStats(player.getUniqueId().toString(), 0, 0, 0);
+                        stats = new PlayerStats(player.getUniqueId().toString(), player.getDisplayName(),0, 0, 0, 0,0);
 
                         this.plugin.getDatabase().createPlayerStats(stats);
 
